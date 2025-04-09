@@ -35,6 +35,7 @@
     go
     ghostty
     nixfmt-classic
+    neofetch
   ];
 
   ## ENV VARS ##
