@@ -16,6 +16,7 @@
         modules = [
           # Load the main system configuration file
           ./configuration.nix
+          ./hardware-configuration.nix
         ];
       };
     };
