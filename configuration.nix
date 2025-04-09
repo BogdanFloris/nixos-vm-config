@@ -38,6 +38,8 @@
     # initialHashedPassword = "...";
   };
 
+  home-manager.users.bogdan = import ./home.nix;
+
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
