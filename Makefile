@@ -9,10 +9,11 @@ SSH_OPTIONS=-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
 
 # Target to copy secrets files to the VM
 .PHONY: vm/secrets
+vm/secrets:
 	@echo "--- Copying secrets files to VM ---"
-	# SSH keys
-	rsync -av -e 'ssh $(SSH_OPTIONS)' \
-		--exclude='environment' \
+	rsync -av -e 'ssh $(SSH_OPTIONS) -p$(NIXPORT)' \
+		--include='id_rsa*' \
+		--exclude='*' \
 		$(HOME)/.ssh/ $(NIXUSER)@$(NIXADDR):~/.ssh
 	@echo "--- Copying complete ---"
 
