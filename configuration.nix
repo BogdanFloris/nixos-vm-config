@@ -41,9 +41,7 @@
 
   # Virtualisation settings
   virtualisation.docker.enable = true;
-  virtualisation.lxd = {
-    enable = true;
-  };
+  virtualisation.lxd = { enable = true; };
 
   services.xserver = {
     enable = true;
@@ -58,23 +56,17 @@
     };
 
     # Enable the LightDM display manager (graphical login screen)
-    displayManager = {
-      lightdm.enable = true;
-    };
+    displayManager = { lightdm.enable = true; };
 
     # Enable the i3 window manager session
-    windowManager.i3 = {
-      enable = true;
-    };
+    windowManager.i3 = { enable = true; };
   };
 
   services.displayManager.defaultSession = "none+i3";
 
   services.libinput.enable = true;
 
-  fonts.packages = with pkgs; [
-    hack-font
-  ];
+  fonts.packages = with pkgs; [ hack-font ];
 
   environment.systemPackages = with pkgs; [
     git
@@ -103,20 +95,18 @@
   };
 
   # Mount the vmblock for drag-and-drop and copy-and-paste.
-  systemd.mounts = [
-    {
-      description = "VMware vmblock fuse mount";
-      documentation = [
-        "https://github.com/vmware/open-vm-tools/blob/master/open-vm-tools/vmblock-fuse/design.txt"
-      ];
-      unitConfig.ConditionVirtualization = "vmware";
-      what = "${pkgs.open-vm-tools}/bin/vmware-vmblock-fuse";
-      where = "/run/vmblock-fuse";
-      type = "fuse";
-      options = "subtype=vmware-vmblock,default_permissions,allow_other";
-      wantedBy = [ "multi-user.target" ];
-    }
-  ];
+  systemd.mounts = [{
+    description = "VMware vmblock fuse mount";
+    documentation = [
+      "https://github.com/vmware/open-vm-tools/blob/master/open-vm-tools/vmblock-fuse/design.txt"
+    ];
+    unitConfig.ConditionVirtualization = "vmware";
+    what = "${pkgs.open-vm-tools}/bin/vmware-vmblock-fuse";
+    where = "/run/vmblock-fuse";
+    type = "fuse";
+    options = "subtype=vmware-vmblock,default_permissions,allow_other";
+    wantedBy = [ "multi-user.target" ];
+  }];
 
   security.wrappers.vmware-user-suid-wrapper = {
     setuid = true;
@@ -125,7 +115,8 @@
     source = "${pkgs.open-vm-tools}/bin/vmware-user-suid-wrapper";
   };
 
-  environment.etc.vmware-tools.source = "${pkgs.open-vm-tools}/etc/vmware-tools/*";
+  environment.etc.vmware-tools.source =
+    "${pkgs.open-vm-tools}/etc/vmware-tools/*";
 
   virtualisation.vmware.guest.enable = true;
 
@@ -157,8 +148,8 @@
     openssh = {
       enable = true;
       settings = {
-        # PasswordAuthentication = false;
-        # PermitRootLogin = "no";
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
       };
     };
   };
