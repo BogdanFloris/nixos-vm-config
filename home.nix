@@ -17,6 +17,19 @@
     neovim
     tmux
     fish
+    fishPlugins.autopair
+    fishPlugins.fzf-fish
+    fishPlugins.fish-you-should-use
+    fishPlugins.plugin-git
+    fishPlugins.hydro
+    fishPlugins.sponge
+    fishPlugins.colored-man-pages
+    bat
+    sesh
+    zoxide
+    atuin
+    lazygit
+    lazydocker
   ];
 
   ## ENV VARS ##
@@ -46,6 +59,59 @@
 
   programs.fish = {
     enable = true;
+    plugins = [
+      {
+        name = "autopair";
+        src = pkgs.fishPlugins.autopair.src;
+      }
+      {
+        name = "fzf-fish";
+        src = pkgs.fishPlugins.fzf-fish.src;
+      }
+      {
+        name = "fish-you-should-use";
+        src = pkgs.fishPlugins.fish-you-should-use.src;
+      }
+      {
+        name = "plugin-git";
+        src = pkgs.fishPlugins.plugin-git.src;
+      }
+      {
+        name = "hydro";
+        src = pkgs.fishPlugins.hydro.src;
+      }
+      {
+        name = "sponge";
+        src = pkgs.fishPlugins.sponge.src;
+      }
+      {
+        name = "colored-man-pages";
+        src = pkgs.fishPlugins.colored-man-pages.src;
+      }
+    ];
+
+    shellAliases = {
+      cat = "bat";
+      lg = "lazygit";
+      ld = "lazydocker";
+    };
+
+    functions = {
+      fish_user_key_bindings = ''
+        # Use Cmd+Space to accept autosuggestion
+        bind -k nul forward-char
+      '';
+    };
+  };
+
+  programs.atuin = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
   };
 
   programs.git = {
@@ -86,6 +152,19 @@
         autoupdate = true;
       };
     };
+  };
+
+  programs.tmux = {
+    enable = true;
+    terminal = "xterm-256color";
+    secureSocket = false;
+    mouse = true;
+    shell = "${pkgs.fish}/bin/fish";
+    extraConfig = lib.strings.concatStrings (
+      lib.strings.intersperse "\n" ([
+        (builtins.readFile ./dotfiles/tmux.conf)
+      ])
+    );
   };
 
   services.gpg-agent = {
