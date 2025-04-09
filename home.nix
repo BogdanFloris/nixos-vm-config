@@ -114,6 +114,8 @@
       }
     ];
 
+    shellInit = "fish_add_path $HOME/go/bin";
+
     shellAliases = {
       cat = "bat";
       lg = "lazygit";
