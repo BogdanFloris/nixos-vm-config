@@ -38,11 +38,14 @@
     # initialHashedPassword = "...";
   };
 
+  security.sudo.wheelNeedsPassword = false;
+
   environment.systemPackages = with pkgs; [
     git
     vim
     wget
     curl
+    htop
 
     # VMware Guest Additions
     open-vm-tools
