@@ -48,6 +48,33 @@
   ## PROGRAMS ##
   programs.home-manager.enable = true;
 
+  # Add i3 config management
+  home.file.".config/i3/config" = {
+    source = ./dotfiles/i3.conf;
+  };
+
+  # Ghostty config
+  home.file.".config/ghostty/config" = {
+    source = ./dotfiles/ghostty/config;
+  };
+
+  programs.i3status = {
+    enable = true;
+
+    general = {
+      colors = true;
+      color_good = "#8C9440";
+      color_bad = "#A54242";
+      color_degraded = "#DE935F";
+    };
+
+    # modules = {
+    #   ipv6.enable = false;
+    #   "wireless _first_".enable = false;
+    #   "battery all".enable = false;
+    # };
+  };
+
   programs.bash = {
     enable = true;
     shellOptions = [ ];
@@ -201,4 +228,12 @@
     enableSshSupport = true;
   };
 
+  xresources.extraConfig = builtins.readFile ./dotfiles/Xresources;
+
+  home.pointerCursor = {
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 128;
+    x11.enable = true;
+  };
 }
