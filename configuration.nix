@@ -47,6 +47,12 @@
     open-vm-tools
   ];
 
+  nix = {
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   # Enable necessary services
   services = {
     openssh = {
