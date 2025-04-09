@@ -56,9 +56,8 @@
     openssh = {
       enable = true;
       settings = {
-        # Optional: Disallow password authentication for better security
-        # PasswordAuthentication = false;
-        # PermitRootLogin = "no"; # Recommended
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
       };
     };
   };
