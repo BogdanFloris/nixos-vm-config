@@ -37,7 +37,7 @@
   security.sudo.wheelNeedsPassword = false;
 
   # Setup QEMU so we can run x86_64 binaries
-  boot.binfmt.emulatedSystems = ["x86_64-linux"];
+  boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
 
   # Virtualisation settings
   virtualisation.docker.enable = true;
@@ -126,6 +126,20 @@
   environment.etc.vmware-tools.source = "${pkgs.open-vm-tools}/etc/vmware-tools/*";
 
   virtualisation.vmware.guest.enable = true;
+
+  # Share the host's filesystem with the VM
+  fileSystems."/home/bogdan/host" = {
+    device = ".host:/host"; # Mount the specific share named "host"
+    fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
+    options = [
+      "defaults" # Use default mount options
+      "allow_other" # IMPORTANT: Allow non-root user access
+      "auto_unmount" # Unmount if host connection lost/share removed
+      "uid=bogdan" # Set file owner to your user
+      "gid=users" # Set file group to the 'users' group
+      "umask=022" # Set default file permissions (rw-r--r--)
+    ];
+  };
 
   nix = {
     extraOptions = ''
