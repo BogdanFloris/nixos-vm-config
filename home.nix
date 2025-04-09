@@ -30,11 +30,19 @@
     atuin
     lazygit
     lazydocker
+    nodejs
+    yarn
+    gcc
+    cmake
+    python3
+    cargo
+    unzip
+    go
+    ghostty
   ];
 
   ## ENV VARS ##
   home.sessionVariables = {
-    EDITOR = "nvim";
   };
 
   ## PROGRAMS ##
@@ -119,6 +127,15 @@
     enableFishIntegration = true;
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "gruvbox-dark";
+      color = "always";
+      style = "changes,numbers";
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "Bogdan Floris";
@@ -170,6 +187,12 @@
         (builtins.readFile ./dotfiles/tmux.conf)
       ])
     );
+  };
+
+  # Link the Neovim config to the home directory
+  home.file.".config/nvim" = {
+    source = ./dotfiles/nvim;
+    recursive = true;
   };
 
   services.gpg-agent = {
