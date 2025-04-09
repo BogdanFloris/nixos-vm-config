@@ -32,13 +32,7 @@
     description = "Bogdan Floris";
     home = "/home/bogdan";
     extraGroups = [ "wheel" ]; # Enable sudo
-    # !!! Set a password AFTER installation using 'passwd' command !!!
-    # OR generate a hash using `mkpasswd -m sha-512` on a Linux system
-    # and uncomment the line below, replacing '...' with the hash.
-    # initialHashedPassword = "...";
   };
-
-  home-manager.users.bogdan = import ./home.nix;
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -58,13 +52,12 @@
     openssh = {
       enable = true;
       settings = {
-        PasswordAuthentication = false;
-        PermitRootLogin = "no";
+        # PasswordAuthentication = false;
+        # PermitRootLogin = "no";
       };
     };
   };
 
-  # Allow unfree packages (needed for some software, maybe VMWare tools if open-vm-tools isn't enough, but start without)
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.11";
 

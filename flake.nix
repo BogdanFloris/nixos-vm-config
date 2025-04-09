@@ -13,22 +13,26 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       ...
-    }@inputs:
+    }:
     {
       # Define a NixOS configuration named 'nixos-vm'
       nixosConfigurations.nixos-vm = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux"; # M Mac's VMWare Fusion VM
-        specialArgs = { inherit inputs; }; # Pass flake inputs to modules
         modules = [
-          home-manager.nixosModules.home-manager
-
           # Load the main system configuration file
           ./configuration.nix
           ./hardware-configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.bogdan = ./home.nix;
+          }
         ];
       };
     };

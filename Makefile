@@ -35,7 +35,7 @@ vm/copy:
 vm/switch:
 	@echo "--- Applying configuration inside VM ($(NIXUSER)@$(NIXADDR)) ---"
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
-		sudo nixos-rebuild switch --flake '/etc/nixos#$(NIXNAME)' \
+		sudo nixos-rebuild switch --flake '/etc/nixos#$(NIXNAME)' --show-trace \
 	"
 	@echo "--- Switch complete ---"
 
