@@ -81,6 +81,7 @@
     killall
     niv
     xclip
+    man-pages
 
     # VMware Guest Additions
     open-vm-tools
