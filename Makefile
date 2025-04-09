@@ -40,6 +40,26 @@ vm/switch:
 	"
 	@echo "--- Switch complete ---"
 
+.PHONY: copy
+copy:
+	@echo "--- Copying configuration to target directory ---"
+	rsync -av \
+		--exclude='.git/' \
+		--exclude='.direnv/' \
+		--exclude='result*' \
+		--rsync-path="sudo rsync" \
+		$(MAKEFILE_DIR)/ /etc/nixos/
+
+.PHONY: switch
+switch:
+	@echo "--- Applying configuration from inside VM ---"
+	sudo nixos-rebuild switch --flake '/etc/nixos#$(NIXNAME)'
+	@echo "--- Switch complete ---"
+
 # Convenience target to copy and then switch
+.PHONY: vm/update
+vm/update: vm/copy vm/switch
+
+# Convenience target to copy secrets and then switch
 .PHONY: update
-update: vm/copy vm/switch
+update: copy switch
