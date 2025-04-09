@@ -58,9 +58,6 @@
         # PermitRootLogin = "no"; # Recommended
       };
     };
-
-    # Enable VMware guest tools service
-    open-vm-tools.enable = true;
   };
 
   # Allow unfree packages (needed for some software, maybe VMWare tools if open-vm-tools isn't enough, but start without)
