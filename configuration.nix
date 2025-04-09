@@ -31,7 +31,7 @@
     isNormalUser = true;
     description = "Bogdan Floris";
     home = "/home/bogdan";
-    extraGroups = [ "wheel" ]; # Enable sudo
+    extraGroups = [ "wheel" "docker" ]; # Enable sudo
   };
 
   security.sudo.wheelNeedsPassword = false;
