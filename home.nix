@@ -34,7 +34,7 @@
     unzip
     go
     ghostty
-    nixfmt
+    nixfmt-classic
   ];
 
   ## ENV VARS ##
