@@ -49,6 +49,8 @@
     enable = true;
     xkb.layout = "us";
     dpi = 220;
+    autoRepeatDelay = 250;
+    autoRepeatInterval = 30;
 
     desktopManager = {
       xterm.enable = false;

@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 
 {
   home.username = "bogdan";
@@ -39,24 +34,20 @@
     unzip
     go
     ghostty
+    nixfmt
   ];
 
   ## ENV VARS ##
-  home.sessionVariables = {
-  };
+  home.sessionVariables = { };
 
   ## PROGRAMS ##
   programs.home-manager.enable = true;
 
   # Add i3 config management
-  home.file.".config/i3/config" = {
-    source = ./dotfiles/i3.conf;
-  };
+  home.file.".config/i3/config" = { source = ./dotfiles/i3.conf; };
 
   # Ghostty config
-  home.file.".config/ghostty/config" = {
-    source = ./dotfiles/ghostty/config;
-  };
+  home.file.".config/ghostty/config" = { source = ./dotfiles/ghostty/config; };
 
   programs.i3status = {
     enable = true;
@@ -78,10 +69,7 @@
   programs.bash = {
     enable = true;
     shellOptions = [ ];
-    historyControl = [
-      "ignoredups"
-      "ignorespace"
-    ];
+    historyControl = [ "ignoredups" "ignorespace" ];
     initExtra = ''
       # If we're running interactively (not via script, ssh command etc.)
       # and fish exists, replace bash with fish.
@@ -209,11 +197,8 @@
     secureSocket = false;
     mouse = true;
     shell = "${pkgs.fish}/bin/fish";
-    extraConfig = lib.strings.concatStrings (
-      lib.strings.intersperse "\n" ([
-        (builtins.readFile ./dotfiles/tmux.conf)
-      ])
-    );
+    extraConfig = lib.strings.concatStrings (lib.strings.intersperse "\n"
+      ([ (builtins.readFile ./dotfiles/tmux.conf) ]));
   };
 
   # Link the Neovim config to the home directory
