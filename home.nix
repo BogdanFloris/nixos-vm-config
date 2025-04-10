@@ -27,7 +27,6 @@
     lazydocker
     nodejs
     yarn
-    gcc
     cmake
     python3
     cargo
@@ -35,7 +34,6 @@
     go
     ghostty
     nixfmt-classic
-    neofetch
   ];
 
   ## ENV VARS ##
