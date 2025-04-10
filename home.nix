@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, unstablePkgs, ... }:
 
 {
   home.username = "bogdan";
@@ -32,6 +32,8 @@
     unzip
     ghostty
     nixfmt-classic
+    unstablePkgs.aider-chat
+    unstablePkgs.claude-code
   ];
 
   ## ENV VARS ##
