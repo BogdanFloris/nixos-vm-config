@@ -27,7 +27,6 @@
     lazydocker
     nodejs
     yarn
-    cmake
     python3
     cargo
     unzip
@@ -115,7 +114,6 @@
     shellInit = "fish_add_path $HOME/go/bin";
 
     shellAliases = {
-      cat = "bat";
       lg = "lazygit";
       ld = "lazydocker";
     };
@@ -214,6 +212,11 @@
     defaultCacheTtlSsh = 604800;
     maxCacheTtlSsh = 604800;
     enableSshSupport = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 
   xresources.extraConfig = builtins.readFile ./dotfiles/Xresources;
