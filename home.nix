@@ -30,7 +30,6 @@
     python3
     cargo
     unzip
-    go
     ghostty
     nixfmt-classic
   ];
@@ -110,8 +109,6 @@
         src = pkgs.fishPlugins.colored-man-pages.src;
       }
     ];
-
-    shellInit = "fish_add_path $HOME/go/bin";
 
     shellAliases = {
       lg = "lazygit";
