@@ -49,6 +49,12 @@
   # Ghostty config
   home.file.".config/ghostty/config" = { source = ./dotfiles/ghostty/config; };
 
+  # npmrc
+  home.file.".npmrc" = {
+    source = ./dotfiles/npmrc;
+    executable = false;
+  };
+
   programs.i3status = {
     enable = true;
 
