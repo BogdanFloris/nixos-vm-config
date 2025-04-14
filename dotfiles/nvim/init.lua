@@ -795,7 +795,7 @@ local servers = {
       },
       python = {
         analysis = {
-          ignore = { "*" },    -- Using Ruff
+          ignore = { "*" },         -- Using Ruff
           typeCheckingMode = "off", -- Using mypy
         },
       },
@@ -809,13 +809,6 @@ local servers = {
   htmx = {},
   sqlls = { filetypes = { "sql", "psql" } },
   glsl_analyzer = { filetypes = { "glsl" } },
-
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
   nil_ls = {},
   -- solargraph = {},
 }
@@ -867,4 +860,15 @@ lspconfig.clangd.setup({
     "clangd",
     "--offset-encoding=utf-16",
   },
+})
+
+lspconfig.lua_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+    },
+  }
 })

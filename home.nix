@@ -33,6 +33,7 @@
     ghostty
     chromium
     nixfmt-classic
+    lua-language-server
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
   ];
