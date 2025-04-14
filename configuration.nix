@@ -129,8 +129,8 @@
       "defaults" # Use default mount options
       "allow_other" # IMPORTANT: Allow non-root user access
       "auto_unmount" # Unmount if host connection lost/share removed
-      "uid=bogdan" # Set file owner to your user
-      "gid=users" # Set file group to the 'users' group
+      "uid=1000"
+      "gid=1000"
       "umask=022" # Set default file permissions (rw-r--r--)
     ];
   };
