@@ -31,6 +31,7 @@
     cargo
     unzip
     ghostty
+    chromium
     nixfmt-classic
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
