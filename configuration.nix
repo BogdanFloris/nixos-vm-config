@@ -80,7 +80,6 @@
     gnumake
     killall
     niv
-    xclip
     man-pages
 
     # VMware Guest Additions
