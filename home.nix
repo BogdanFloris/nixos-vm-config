@@ -1,6 +1,8 @@
 { config, lib, pkgs, unstablePkgs, ... }:
 
 {
+  imports = [ ./nvim.nix ];
+
   home.username = "bogdan";
   home.homeDirectory = "/home/bogdan";
 
@@ -9,7 +11,6 @@
   ## PACKAGES ##
   home.packages = with pkgs; [
     ripgrep
-    neovim
     tmux
     fish
     fishPlugins.autopair
@@ -33,7 +34,6 @@
     ghostty
     chromium
     nixfmt-classic
-    lua-language-server
     postgresql
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
@@ -207,12 +207,6 @@
     shell = "${pkgs.fish}/bin/fish";
     extraConfig = lib.strings.concatStrings (lib.strings.intersperse "\n"
       ([ (builtins.readFile ./dotfiles/tmux.conf) ]));
-  };
-
-  # Link the Neovim config to the home directory
-  home.file.".config/nvim" = {
-    source = ./dotfiles/nvim;
-    recursive = true;
   };
 
   services.gpg-agent = {
