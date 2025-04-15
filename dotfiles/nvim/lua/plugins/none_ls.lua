@@ -32,7 +32,6 @@ return {
       null_ls.builtins.formatting.nixfmt,
 
       -- diagnostics
-      null_ls.builtins.diagnostics.vale,
       null_ls.builtins.diagnostics.djlint,
       null_ls.builtins.diagnostics.hadolint,
       null_ls.builtins.diagnostics.sqlfluff.with({

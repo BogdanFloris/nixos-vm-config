@@ -41,7 +41,6 @@
       mypy
       ruff
       nodePackages.sql-formatter
-      vale
       hadolint
       shellcheck
       rustfmt
