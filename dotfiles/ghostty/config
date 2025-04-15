@@ -5,3 +5,4 @@ theme = GruvboxDark
 title = Ghostty
 
 window-decoration = none
+app-notifications = false
