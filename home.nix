@@ -34,6 +34,7 @@
     chromium
     nixfmt-classic
     lua-language-server
+    postgresql
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
   ];
