@@ -37,6 +37,7 @@
     postgresql
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
+    unstablePkgs.httpyac
   ];
 
   ## ENV VARS ##
