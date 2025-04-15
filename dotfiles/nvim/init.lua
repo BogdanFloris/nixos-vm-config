@@ -711,7 +711,6 @@ vim.defer_fn(function()
 end, 0)
 
 -- Setup LSP servers directly
-local nixos = require("nixos")
 local on_attach = require("lsp_tools").on_attach
 
 local servers = {

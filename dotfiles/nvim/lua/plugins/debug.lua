@@ -134,9 +134,6 @@ return {
 		local dap = require("dap")
 		local dapui = require("dapui")
 
-		-- Debug adapters configuration
-		-- These are provided by NixOS packages
-
 		-- Dap UI setup
 		-- For more information, see |:help nvim-dap-ui|
 		dapui.setup({
