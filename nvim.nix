@@ -24,6 +24,7 @@
       clang-tools # For clangd
       nodePackages.graphql-language-service-cli
       sqls
+      htmx-lsp
       glslang # For glsl_analyzer
 
       # Linters and formatters
