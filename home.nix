@@ -38,6 +38,7 @@
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
     unstablePkgs.httpyac
+    unstablePkgs.zvm
   ];
 
   ## ENV VARS ##
