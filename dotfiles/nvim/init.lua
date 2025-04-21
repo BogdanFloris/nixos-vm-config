@@ -445,6 +445,9 @@ vim.o.termguicolors = true
 -- Enable Rest NVIM
 vim.g.rest_nvim = {}
 
+-- Copilot path
+vim.g.copilot_node_command = os.getenv("COPILOT_NODE_COMMAND")
+
 -- Disable Copilot by default
 vim.cmd(":Copilot disable")
 
