@@ -15,8 +15,8 @@
       # Language servers
       lua-language-server
       nil # Nix language server
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted # html, css, json, eslint
+      unstablePkgs.nodePackages.typescript-language-server
+      unstablePkgs.nodePackages.vscode-langservers-extracted # html, css, json, eslint
       nodePackages."@tailwindcss/language-server"
       gopls
       rust-analyzer
