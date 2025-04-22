@@ -387,6 +387,7 @@ require("lazy").setup({
 	require("plugins.gopher"),
 	require("plugins.debug"),
 	require("plugins.neotest"),
+	require("plugins.leetcode"),
 }, {})
 
 -- [[ Setting options ]]
