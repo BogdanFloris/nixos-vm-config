@@ -66,7 +66,7 @@
 
   services.libinput.enable = true;
 
-  fonts.packages = with pkgs; [ hack-font ];
+  fonts.packages = with pkgs; [ hack-font jetbrains-mono ];
 
   environment.systemPackages = with pkgs; [
     git
