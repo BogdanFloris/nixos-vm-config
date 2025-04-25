@@ -10,9 +10,10 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, sops-nix, ... }:
     let
       system = "aarch64-linux";
       unstablePkgs = import nixpkgs-unstable {
@@ -26,6 +27,7 @@
           # Load the main system configuration file
           ./configuration.nix
           ./hardware-configuration.nix
+          sops-nix.nixosModules.sops
 
           home-manager.nixosModules.home-manager
           {
@@ -33,6 +35,7 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = { inherit unstablePkgs; };
+            home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
             home-manager.users.bogdan = ./home.nix;
           }
         ];

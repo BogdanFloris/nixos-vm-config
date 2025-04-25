@@ -40,6 +40,23 @@
     unstablePkgs.httpyac
   ];
 
+  sops = {
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+    defaultSopsFile = ./secrets.yml;
+    defaultSymlinkPath = "/run/user/1000/secrets";
+    defaultSecretsMountPoint = "/run/user/1000/secrets.d";
+    secrets = {
+      npm_token = { path = "${config.sops.defaultSymlinkPath}/npm_token"; };
+      anthropic_api_key = {
+        path = "${config.sops.defaultSymlinkPath}/anthropic_api_key";
+      };
+      gemini_api_key = {
+        path = "${config.sops.defaultSymlinkPath}/gemini_api_key";
+      };
+    };
+
+  };
+
   ## ENV VARS ##
   home.sessionVariables = { };
 
@@ -67,12 +84,6 @@
       color_bad = "#A54242";
       color_degraded = "#DE935F";
     };
-
-    # modules = {
-    #   ipv6.enable = false;
-    #   "wireless _first_".enable = false;
-    #   "battery all".enable = false;
-    # };
   };
 
   programs.bash = {
@@ -133,6 +144,12 @@
         bind -k nul forward-char
       '';
     };
+
+    interactiveShellInit = ''
+      export NPM_TOKEN=$(cat ${config.sops.secrets.npm_token.path})
+      export ANTHROPIC_API_KEY=$(cat ${config.sops.secrets.anthropic_api_key.path})
+      export GEMINI_API_KEY=$(cat ${config.sops.secrets.gemini_api_key.path})
+    '';
   };
 
   programs.fzf = {
