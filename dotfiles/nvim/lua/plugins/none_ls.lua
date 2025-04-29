@@ -37,7 +37,6 @@ return {
       null_ls.builtins.diagnostics.sqlfluff.with({
         extra_args = { "--dialect", "snowflake" },
       }),
-      null_ls.builtins.diagnostics.mypy,
 
       -- code actions
       null_ls.builtins.code_actions.gomodifytags,

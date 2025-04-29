@@ -21,6 +21,7 @@
       gopls
       rust-analyzer
       pyright
+      basedpyright
       ruff-lsp
       clang-tools # For clangd
       nodePackages.graphql-language-service-cli
@@ -41,7 +42,6 @@
       golines
       go-tools # For goimports
       sqlfluff
-      mypy
       ruff
       nodePackages.sql-formatter
       hadolint
