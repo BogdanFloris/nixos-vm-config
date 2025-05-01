@@ -115,21 +115,21 @@ require("lazy").setup({
 		opts = {},
 		keys = {
 
-			{ "<leader>c", group = "[C]ode" },
+			{ "<leader>c",  group = "[C]ode" },
 			{ "<leader>c_", hidden = true },
-			{ "<leader>d", group = "[D]ocument" },
+			{ "<leader>d",  group = "[D]ocument" },
 			{ "<leader>d_", hidden = true },
-			{ "<leader>g", group = "[G]it" },
+			{ "<leader>g",  group = "[G]it" },
 			{ "<leader>g_", hidden = true },
-			{ "<leader>h", group = "[H]arpoon" },
+			{ "<leader>h",  group = "[H]arpoon" },
 			{ "<leader>h_", hidden = true },
-			{ "<leader>p", group = "More git" },
+			{ "<leader>p",  group = "More git" },
 			{ "<leader>p_", hidden = true },
-			{ "<leader>r", group = "[R]ename" },
+			{ "<leader>r",  group = "[R]ename" },
 			{ "<leader>r_", hidden = true },
-			{ "<leader>s", group = "[S]earch" },
+			{ "<leader>s",  group = "[S]earch" },
 			{ "<leader>s_", hidden = true },
-			{ "<leader>w", group = "[W]orkspace" },
+			{ "<leader>w",  group = "[W]orkspace" },
 			{ "<leader>w_", hidden = true },
 		},
 	},
@@ -230,7 +230,7 @@ require("lazy").setup({
 	},
 
 	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim", opts = {} },
+	{ "numToStr/Comment.nvim",       opts = {} },
 
 	{
 		"folke/todo-comments.nvim",
@@ -261,7 +261,7 @@ require("lazy").setup({
 				end,
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
 		},
 	},
 
