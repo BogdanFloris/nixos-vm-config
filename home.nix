@@ -36,6 +36,7 @@
     postgresql
     teleport
     k9s
+    kubectl
 
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
