@@ -33,8 +33,10 @@
     unzip
     ghostty
     chromium
-    nixfmt-classic
     postgresql
+    teleport
+    k9s
+
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
     unstablePkgs.httpyac

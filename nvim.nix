@@ -48,6 +48,7 @@
       shellcheck
       rustfmt
       clippy
+      nixfmt-classic
 
       # For code actions
       impl # Go implementation generator
