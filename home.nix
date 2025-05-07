@@ -37,6 +37,7 @@
     teleport
     k9s
     kubectl
+    jfrog-cli
 
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
