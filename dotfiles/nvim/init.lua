@@ -744,6 +744,7 @@ local servers = {
 	zls = {
 		filetypes = { "zig" },
 	},
+	solargraph = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
