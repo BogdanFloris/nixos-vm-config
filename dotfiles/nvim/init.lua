@@ -50,7 +50,11 @@ require("lazy").setup({
 	"ojroques/nvim-bufdel",
 
 	-- Copilot
-	"github/copilot.vim",
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+	},
 
 	{
 		-- Gruvbox Theme
@@ -447,12 +451,6 @@ vim.o.termguicolors = true
 -- Enable Rest NVIM
 vim.g.rest_nvim = {}
 
--- Copilot path
-vim.g.copilot_node_command = os.getenv("COPILOT_NODE_COMMAND")
-
--- Disable Copilot by default
-vim.cmd(":Copilot disable")
-
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -511,19 +509,6 @@ vim.keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", { desc = "Re-run lat
 -- Zen mode keymap
 vim.keymap.set("n", "<leader>zm", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
 
-vim.g.cpt = false
-vim.keymap.set("n", "<leader>cpt", function()
-	if vim.g.cpt then
-		vim.g.cpt = false
-		vim.cmd(":Copilot disable")
-		print("Copilot disabled")
-	else
-		vim.g.cpt = true
-		vim.cmd(":Copilot enable")
-		print("Copilot enabled")
-	end
-end, { desc = "Toggle Copilot" })
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -533,6 +518,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 	group = highlight_group,
 	pattern = "*",
+})
+
+-- Copilot config
+require("copilot").setup({
+	suggestion = {
+		keymap = {
+			accept = "<Tab>",
+		},
+	},
+	copilot_node_command = os.getenv("COPILOT_NODE_COMMAND"),
 })
 
 -- [[ Configure Telescope ]]
