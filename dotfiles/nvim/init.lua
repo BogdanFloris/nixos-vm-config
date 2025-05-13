@@ -383,6 +383,12 @@ require("lazy").setup({
 			-- refer to the configuration section below
 		},
 	},
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {},
+		event = "BufEnter",
+	},
 
 	require("plugins.blink"),
 	require("plugins.none_ls"),
