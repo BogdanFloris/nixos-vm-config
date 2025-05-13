@@ -527,6 +527,10 @@ require("copilot").setup({
 			accept = "<Tab>",
 		},
 	},
+	filetypes = {
+		yaml = true,
+		markdown = true,
+	},
 	copilot_node_command = os.getenv("COPILOT_NODE_COMMAND"),
 })
 
