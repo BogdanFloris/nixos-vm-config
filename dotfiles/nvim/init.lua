@@ -397,6 +397,11 @@ require("lazy").setup({
 			"nvim-treesitter/nvim-treesitter",
 		},
 	},
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
+	},
 
 	require("plugins.blink"),
 	require("plugins.none_ls"),
