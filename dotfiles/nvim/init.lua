@@ -119,21 +119,21 @@ require("lazy").setup({
 		opts = {},
 		keys = {
 
-			{ "<leader>c",  group = "[C]ode" },
+			{ "<leader>c", group = "[C]ode" },
 			{ "<leader>c_", hidden = true },
-			{ "<leader>d",  group = "[D]ocument" },
+			{ "<leader>d", group = "[D]ocument" },
 			{ "<leader>d_", hidden = true },
-			{ "<leader>g",  group = "[G]it" },
+			{ "<leader>g", group = "[G]it" },
 			{ "<leader>g_", hidden = true },
-			{ "<leader>h",  group = "[H]arpoon" },
+			{ "<leader>h", group = "[H]arpoon" },
 			{ "<leader>h_", hidden = true },
-			{ "<leader>p",  group = "More git" },
+			{ "<leader>p", group = "More git" },
 			{ "<leader>p_", hidden = true },
-			{ "<leader>r",  group = "[R]ename" },
+			{ "<leader>r", group = "[R]ename" },
 			{ "<leader>r_", hidden = true },
-			{ "<leader>s",  group = "[S]earch" },
+			{ "<leader>s", group = "[S]earch" },
 			{ "<leader>s_", hidden = true },
-			{ "<leader>w",  group = "[W]orkspace" },
+			{ "<leader>w", group = "[W]orkspace" },
 			{ "<leader>w_", hidden = true },
 		},
 	},
@@ -234,7 +234,7 @@ require("lazy").setup({
 	},
 
 	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim",       opts = {} },
+	{ "numToStr/Comment.nvim", opts = {} },
 
 	{
 		"folke/todo-comments.nvim",
@@ -265,7 +265,7 @@ require("lazy").setup({
 				end,
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 	},
 
@@ -388,6 +388,14 @@ require("lazy").setup({
 		dependencies = { "MunifTanjim/nui.nvim" },
 		opts = {},
 		event = "BufEnter",
+	},
+	{
+		"olimorris/codecompanion.nvim",
+		opts = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 
 	require("plugins.blink"),
@@ -515,6 +523,12 @@ vim.keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", { desc = "Re-run lat
 -- Zen mode keymap
 vim.keymap.set("n", "<leader>zm", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
 
+-- Codecompanion keymaps
+
+vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>ct", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "v" }, "<leader>ct", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -538,6 +552,21 @@ require("copilot").setup({
 		markdown = true,
 	},
 	copilot_node_command = os.getenv("COPILOT_NODE_COMMAND"),
+})
+
+-- Codecompanion
+require("codecompanion").setup({
+	adapters = {
+		copilot = function()
+			return require("codecompanion.adapters").extend("copilot", {
+				schema = {
+					model = {
+						default = "claude-3.7-sonnet",
+					},
+				},
+			})
+		end,
+	},
 })
 
 -- [[ Configure Telescope ]]
@@ -738,7 +767,6 @@ local servers = {
 		},
 	},
 	ruff = {},
-	ts_ls = {},
 	eslint = {},
 	tailwindcss = { filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact" } },
 	html = { filetypes = { "html", "htmldjango" } },
