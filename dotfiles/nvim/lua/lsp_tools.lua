@@ -59,7 +59,7 @@ local on_attach = function(client, bufnr)
 	end
 
 	-- Javascript/Typescript specific commands
-	if client.name == "ts_ls" then
+	if client.name == "eslint" then
 		-- ESLint Fix All
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			buffer = bufnr,
