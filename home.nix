@@ -39,6 +39,7 @@
     kubectl
     jfrog-cli
     jq
+    awscli2
 
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
