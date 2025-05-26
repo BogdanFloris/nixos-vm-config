@@ -560,9 +560,10 @@ require("copilot").setup({
 })
 
 vim.keymap.set(
-	{ "n" },
+	"n",
 	"<leader>cpt",
-	require("copilot.suggestion").toggle_auto_trigger(),
+	require("copilot.suggestion").toggle_auto_trigger,
+	{ desc = "Toggle Copilot auto trigger" }
 )
 
 -- Codecompanion
