@@ -44,6 +44,7 @@
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
     unstablePkgs.httpyac
+    unstablePkgs.jujutsu
   ];
 
   sops = {
