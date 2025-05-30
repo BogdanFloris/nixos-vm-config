@@ -6,7 +6,7 @@
   home.username = "bogdan";
   home.homeDirectory = "/home/bogdan";
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 
   ## PACKAGES ##
   home.packages = with pkgs; [
@@ -40,11 +40,11 @@
     jfrog-cli
     jq
     awscli2
+    jujutsu
 
     unstablePkgs.aider-chat
     unstablePkgs.claude-code
     unstablePkgs.httpyac
-    unstablePkgs.jujutsu
   ];
 
   sops = {
@@ -235,7 +235,7 @@
 
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentry.package = pkgs.pinentry-curses;
     defaultCacheTtlSsh = 604800;
     maxCacheTtlSsh = 604800;
     enableSshSupport = true;
