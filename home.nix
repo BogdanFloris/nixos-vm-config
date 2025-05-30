@@ -223,6 +223,18 @@
     };
   };
 
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Bogdan Floris";
+        email = "bogdan.floris@gmail.com";
+      };
+      ui = { editor = "nvim"; };
+      git = { private-commits = "'''description(glob:'private:*')'''"; };
+    };
+  };
+
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
