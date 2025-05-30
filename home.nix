@@ -41,10 +41,9 @@
     jq
     awscli2
     jujutsu
-
-    unstablePkgs.aider-chat
+    aider-chat
+    httpyac
     unstablePkgs.claude-code
-    unstablePkgs.httpyac
   ];
 
   sops = {
@@ -231,7 +230,6 @@
         email = "bogdan.floris@gmail.com";
       };
       ui = { editor = "nvim"; };
-      git = { private-commits = "'''description(glob:'private:*')'''"; };
     };
   };
 
