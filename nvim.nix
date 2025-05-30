@@ -22,7 +22,7 @@
       rust-analyzer
       pyright
       basedpyright
-      ruff-lsp
+      ruff
       clang-tools # For clangd
       nodePackages.graphql-language-service-cli
       sqls

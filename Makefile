@@ -24,6 +24,7 @@ vm/copy:
 	@echo "--- Copying configuration files to VM ($(NIXUSER)@$(NIXADDR)) ---"
 	rsync -av -e 'ssh $(SSH_OPTIONS) -p$(NIXPORT)' \
 		--exclude='.git/' \
+		--exclude='.jj/' \
 		--exclude='.direnv/' \
 		--exclude='result*' \
 		--rsync-path="sudo rsync" \
@@ -45,6 +46,7 @@ copy:
 	@echo "--- Copying configuration to target directory ---"
 	rsync -av \
 		--exclude='.git/' \
+		--exclude='.jj/' \
 		--exclude='.direnv/' \
 		--exclude='result*' \
 		--rsync-path="sudo rsync" \
