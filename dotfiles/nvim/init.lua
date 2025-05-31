@@ -548,6 +548,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Copilot config
 require("copilot").setup({
 	suggestion = {
+		enabled = false,
+		auto_trigger = true,
 		keymap = {
 			accept = "<Tab>",
 		},
