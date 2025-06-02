@@ -229,7 +229,10 @@
         name = "Bogdan Floris";
         email = "bogdan.floris@gmail.com";
       };
-      ui = { editor = "nvim"; };
+      ui = {
+        editor = "nvim";
+        default-command = "log";
+      };
     };
   };
 
