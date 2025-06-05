@@ -43,6 +43,7 @@
     jujutsu
     aider-chat
     httpyac
+    eza
     unstablePkgs.claude-code
   ];
 
