@@ -6,3 +6,6 @@ title = Ghostty
 
 window-decoration = none
 app-notifications = false
+
+# Fix sending shift+enter for Claude Code
+keybind = shift+enter=text:\x1b\r
