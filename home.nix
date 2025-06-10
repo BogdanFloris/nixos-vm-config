@@ -34,7 +34,7 @@
     ghostty
     chromium
     postgresql
-    teleport
+    teleport_16
     k9s
     kubectl
     jfrog-cli
