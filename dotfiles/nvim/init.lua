@@ -38,6 +38,16 @@ vim.filetype.add({
 	},
 })
 
+vim.g.vimwiki_list = {
+	{
+		path = "~/daily/",
+		syntax = "markdown",
+		ext = "md",
+		diary_rel_path = ".",
+		diary_header = "# Daily List",
+	},
+}
+
 require("lazy").setup({
 	-- Git related plugins
 	"tpope/vim-fugitive",
@@ -48,6 +58,12 @@ require("lazy").setup({
 
 	-- Buf del
 	"ojroques/nvim-bufdel",
+
+	{
+		"vimwiki/vimwiki",
+		event = "BufEnter *.md",
+		keys = { "<leader>ww", "<leader>wt" },
+	},
 
 	-- Copilot
 	{

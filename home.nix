@@ -150,6 +150,17 @@
         # Use Cmd+Space to accept autosuggestion
         bind -k nul forward-char
       '';
+
+      today = ''
+        set -l dir ~/daily
+        mkdir -p $dir
+        cd $dir
+        set -l today_file (date +%F).md
+        if not test -e $today_file
+          printf "# Daily List – %s\n\n" (date "+%A, %d %b %Y") > $today_file
+        end
+        nvim $today_file
+      '';
     };
 
     interactiveShellInit = ''
