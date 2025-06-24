@@ -45,6 +45,7 @@
     httpyac
     eza
     glow
+    dust
     unstablePkgs.claude-code
   ];
 
