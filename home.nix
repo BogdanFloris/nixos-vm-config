@@ -44,6 +44,7 @@
     aider-chat
     httpyac
     eza
+    glow
     unstablePkgs.claude-code
   ];
 
