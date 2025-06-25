@@ -41,7 +41,6 @@
 
   # Virtualisation settings
   virtualisation.docker.enable = true;
-  virtualisation.lxd = { enable = true; };
 
   services.xserver = {
     enable = true;
