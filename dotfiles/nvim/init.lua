@@ -399,14 +399,6 @@ require("lazy").setup({
 		event = "BufEnter",
 	},
 	{
-		"olimorris/codecompanion.nvim",
-		opts = {},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
-	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 		opts = {},
@@ -552,12 +544,6 @@ vim.keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", { desc = "Re-run lat
 -- Zen mode keymap
 vim.keymap.set("n", "<leader>zm", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
 
--- Codecompanion keymaps
-
-vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>ct", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "v" }, "<leader>ct", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -567,21 +553,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 	group = highlight_group,
 	pattern = "*",
-})
-
--- Codecompanion
-require("codecompanion").setup({
-	adapters = {
-		copilot = function()
-			return require("codecompanion.adapters").extend("copilot", {
-				schema = {
-					model = {
-						default = "claude-3.7-sonnet",
-					},
-				},
-			})
-		end,
-	},
 })
 
 -- [[ Configure Telescope ]]
