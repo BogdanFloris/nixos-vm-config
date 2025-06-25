@@ -65,13 +65,6 @@ require("lazy").setup({
 		keys = { "<leader>ww", "<leader>wt" },
 	},
 
-	-- Copilot
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-	},
-
 	{
 		-- Gruvbox Theme
 		"ellisonleao/gruvbox.nvim",
@@ -575,29 +568,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_group,
 	pattern = "*",
 })
-
--- Copilot config
-require("copilot").setup({
-	suggestion = {
-		enabled = false,
-		auto_trigger = true,
-		keymap = {
-			accept = "<Tab>",
-		},
-	},
-	filetypes = {
-		yaml = true,
-		markdown = true,
-	},
-	copilot_node_command = os.getenv("COPILOT_NODE_COMMAND"),
-})
-
-vim.keymap.set(
-	"n",
-	"<leader>cpt",
-	require("copilot.suggestion").toggle_auto_trigger,
-	{ desc = "Toggle Copilot auto trigger" }
-)
 
 -- Codecompanion
 require("codecompanion").setup({

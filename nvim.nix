@@ -28,7 +28,6 @@
       sqls
       htmx-lsp
       glslang # For glsl_analyzer
-      unstablePkgs.copilot-language-server-fhs
 
       # Linters and formatters
       stylua # Lua formatter
