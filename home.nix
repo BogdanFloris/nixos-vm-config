@@ -46,6 +46,7 @@
     eza
     glow
     dust
+    poop
     unstablePkgs.claude-code
   ];
 
