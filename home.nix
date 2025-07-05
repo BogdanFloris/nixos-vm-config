@@ -48,6 +48,7 @@
     dust
     poop
     unstablePkgs.claude-code
+    unstablePkgs.amp-cli
   ];
 
   sops = {
