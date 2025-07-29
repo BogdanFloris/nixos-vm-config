@@ -47,6 +47,7 @@
     glow
     dust
     poop
+    parallel
     unstablePkgs.claude-code
     unstablePkgs.amp-cli
   ];
