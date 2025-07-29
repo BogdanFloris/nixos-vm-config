@@ -172,6 +172,7 @@
       export NPM_TOKEN=$(cat ${config.sops.secrets.npm_token.path})
       export ANTHROPIC_API_KEY=$(cat ${config.sops.secrets.anthropic_api_key.path})
       export GEMINI_API_KEY=$(cat ${config.sops.secrets.gemini_api_key.path})
+      fish_add_path /home/bogdan/.cargo/bin
     '';
   };
 
