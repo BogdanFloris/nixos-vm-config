@@ -24,7 +24,6 @@
     sesh
     zoxide
     atuin
-    lazygit
     lazydocker
     nodejs
     yarn
@@ -146,7 +145,6 @@
     ];
 
     shellAliases = {
-      lg = "lazygit";
       ld = "lazydocker";
     };
 
