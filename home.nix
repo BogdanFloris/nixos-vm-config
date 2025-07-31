@@ -48,7 +48,6 @@
     poop
     parallel
     unstablePkgs.claude-code
-    unstablePkgs.amp-cli
   ];
 
   sops = {
@@ -146,6 +145,7 @@
 
     shellAliases = {
       ld = "lazydocker";
+      amp = "npx @sourcegraph/amp@latest";
     };
 
     functions = {
