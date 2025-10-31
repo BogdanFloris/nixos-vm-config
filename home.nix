@@ -1,6 +1,8 @@
 { config, lib, pkgs, unstablePkgs, ... }:
 
-{
+let py = pkgs.python313.withPackages (ps: with ps; [ pyyaml ]);
+
+in {
   imports = [ ./nvim.nix ];
 
   home.username = "bogdan";
@@ -27,7 +29,7 @@
     lazydocker
     nodejs
     yarn
-    python3
+    py
     cargo
     unzip
     ghostty
